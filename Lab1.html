@@ -4,7 +4,7 @@
 <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.1/aframe/build/aframe-ar.js"></script>
 <script src="https://github.com/mrdoob/three.js/tree/dev/build/three.js"></script>
 <script src="https://github.com/mrdoob/three.js/tree/dev/build/three.min.js"></script>
-<script src="https://jeromeetienne.github.io/AR.js/three.js/examples/vendor/three.js/examples/js/libs/stats.min.js"></script>
+<script src="https://github.com/mrdoob/three.js/tree/dev/build/three.min.js"></script>
   <body>
 	<script>
 	//////////////////////////////////////////////////////////////////////////////////
@@ -127,12 +127,12 @@
 	var arWorldRoot = smoothedRoot
 
 	// add a torus knot	
-	var geometry	= new THREE.CubeGeometry(1,1,1);
-	var material	= new THREE.MeshNormalMaterial({
-		transparent : true,
-		opacity: 0.5,
-		side: THREE.DoubleSide
-	}); 
+	//var geometry	= new THREE.CubeGeometry(1,1,1);
+	//var material	= new THREE.MeshNormalMaterial({
+	//	transparent : true,
+	//	opacity: 0.5,
+	//	side: THREE.DoubleSide
+	//}); 
 	var mesh	= new THREE.Mesh( geometry, material );
 	mesh.position.y	= geometry.parameters.height/2
 	arWorldRoot.add( mesh );
@@ -142,7 +142,7 @@
 	var mesh	= new THREE.Mesh( geometry, material );
 	mesh.position.y	= 0.5
 	arWorldRoot.add( mesh );
-	
+	//
 	onRenderFcts.push(function(){
 		mesh.rotation.x += 0.1
 	})
@@ -159,19 +159,19 @@
 	})
 
 	// run the rendering loop
-	var lastTimeMsec= null
-	requestAnimationFrame(function animate(nowMsec){
-		// keep looping
-		requestAnimationFrame( animate );
-		// measure time
-		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
-		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
-		lastTimeMsec	= nowMsec
-		// call each update function
-		onRenderFcts.forEach(function(onRenderFct){
-			onRenderFct(deltaMsec/1000, nowMsec/1000)
-		})
-	})
+	//var lastTimeMsec= null
+	//requestAnimationFrame(function animate(nowMsec){
+	//	// keep looping
+	//	requestAnimationFrame( animate );
+	//	// measure time
+	//	lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+	//	var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+	//	lastTimeMsec	= nowMsec
+	//	// call each update function
+	//	onRenderFcts.forEach(function(onRenderFct){
+	//		onRenderFct(deltaMsec/1000, nowMsec/1000)
+	//	})
+	//})
 	</script>
 </body>
 </html>
